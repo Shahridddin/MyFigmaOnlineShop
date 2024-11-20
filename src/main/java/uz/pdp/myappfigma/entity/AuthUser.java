@@ -16,11 +16,11 @@ import lombok.Setter;
 import uz.pdp.myappfigma.enums.AuthRole;
 
 
-@Entity
 @Getter
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
+@Entity
 @Table(name = "auth_users")
 public class AuthUser extends Auditable{
 

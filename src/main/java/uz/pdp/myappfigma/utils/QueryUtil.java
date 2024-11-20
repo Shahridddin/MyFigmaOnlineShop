@@ -5,11 +5,12 @@ import jakarta.persistence.criteria.Expression;
 import jakarta.persistence.criteria.Predicate;
 import jakarta.persistence.criteria.Root;
 import jakarta.persistence.metamodel.SingularAttribute;
+import org.springframework.cglib.core.internal.Function;
 import org.springframework.data.jpa.domain.Specification;
 
 import java.util.Collection;
 import java.util.Locale;
-import java.util.function.Function;
+
 
 public final class QueryUtil {
 

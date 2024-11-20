@@ -6,16 +6,18 @@ import jakarta.transaction.Transactional;
 import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Service;
 import uz.pdp.myappfigma.dto.product.ProductCreateDto;
-import uz.pdp.myappfigma.dto.product.ProductCriteria;
+import uz.pdp.myappfigma.criteria.ProductCriteria;
 import uz.pdp.myappfigma.dto.product.ProductDao;
 import uz.pdp.myappfigma.dto.product.ProductDto;
-import uz.pdp.myappfigma.dto.product.ProductMapper;
+import uz.pdp.myappfigma.generic.ProductMapper;
 import uz.pdp.myappfigma.dto.product.ProductUpdateDto;
 import uz.pdp.myappfigma.entity.Product;
-import uz.pdp.myappfigma.generic.PageDto;
+import uz.pdp.myappfigma.dto.page.PageDto;
+import uz.pdp.myappfigma.repository.ProductRepository;
 
 import java.util.List;
 import java.util.stream.Collectors;
+
 
 @Service
 public class ProductService {

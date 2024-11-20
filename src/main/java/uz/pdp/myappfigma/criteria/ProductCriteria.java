@@ -1,4 +1,4 @@
-package uz.pdp.myappfigma.dto.product;
+package uz.pdp.myappfigma.criteria;
 
 
 import lombok.Getter;

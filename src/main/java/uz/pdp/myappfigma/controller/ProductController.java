@@ -10,10 +10,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import uz.pdp.myappfigma.dto.BaseResponse;
 import uz.pdp.myappfigma.dto.product.ProductCreateDto;
-import uz.pdp.myappfigma.dto.product.ProductCriteria;
+import uz.pdp.myappfigma.criteria.ProductCriteria;
 import uz.pdp.myappfigma.dto.product.ProductDto;
 import uz.pdp.myappfigma.dto.product.ProductUpdateDto;
-import uz.pdp.myappfigma.generic.PageDto;
+import uz.pdp.myappfigma.dto.page.PageDto;
 import uz.pdp.myappfigma.service.ProductService;
 
 import java.util.List;

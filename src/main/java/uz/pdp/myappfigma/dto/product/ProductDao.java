@@ -5,9 +5,11 @@ import jakarta.persistence.EntityManager;
 import jakarta.persistence.TypedQuery;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
+import uz.pdp.myappfigma.criteria.ProductCriteria;
 import uz.pdp.myappfigma.entity.Product;
-import uz.pdp.myappfigma.generic.PageDto;
-import uz.pdp.myappfigma.service.ProductRepository;
+import uz.pdp.myappfigma.dto.page.PageDto;
+import uz.pdp.myappfigma.generic.ProductMapper;
+import uz.pdp.myappfigma.repository.ProductRepository;
 
 import java.util.HashMap;
 import java.util.List;
