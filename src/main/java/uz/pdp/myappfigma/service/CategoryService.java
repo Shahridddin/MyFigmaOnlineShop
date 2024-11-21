@@ -8,34 +8,35 @@ import uz.pdp.myappfigma.dto.category.CategoryCreatDto;
 import uz.pdp.myappfigma.dto.category.CategoryDto;
 import uz.pdp.myappfigma.dto.category.CategoryUpdateDto;
 import uz.pdp.myappfigma.entity.Category;
+import uz.pdp.myappfigma.enums.Gender;
 import uz.pdp.myappfigma.generic.CategoryMapper;
 import uz.pdp.myappfigma.dto.page.PageDto;
 import uz.pdp.myappfigma.repository.CategoryRepository;
+
+import java.util.List;
 
 @Service
 public class CategoryService {
 
 
-    private final CategoryMapper mapper;
     private final CategoryRepository categoryRepository;
     private final CategoryMapper categoryMapper;
 
     public CategoryService(CategoryMapper mapper, CategoryRepository categoryRepository, CategoryMapper categoryMapper) {
-        this.mapper = mapper;
         this.categoryRepository = categoryRepository;
         this.categoryMapper = categoryMapper;
     }
 
-    public Long create(CategoryCreatDto dto){
+    public Long create(CategoryCreatDto dto) {
         Category category = categoryMapper.toEntity(dto);
         categoryRepository.save(category);
         return category.getId();
     }
 
-    public Long update(Long id, CategoryUpdateDto dto){
+    public Long update(Long id, CategoryUpdateDto dto) {
         Category category = categoryRepository.findById(id)
                 .orElseThrow(() -> new RuntimeException("Category not found" + id));
-        categoryMapper.partialUpdate(dto,category);
+        categoryMapper.partialUpdate(dto, category);
         categoryRepository.save(category);
         return category.getId();
     }
@@ -46,10 +47,9 @@ public class CategoryService {
         return categoryMapper.toDto(category);
     }
 
-    @Transactional
-    public PageDto<CategoryDto> getPage(CategoryCriteria criteria) {
-        Page<CategoryDto> page = categoryRepository.findPage(criteria).map(categoryMapper::toDto);
-        return new PageDto<>(page);
+    public List<CategoryDto> getCategoriesByGender(Gender gender) {
+        List<Category> categories = categoryRepository.findByGender(gender);
+        return categories.stream().map(categoryMapper::toDto).toList();
     }
 
 }

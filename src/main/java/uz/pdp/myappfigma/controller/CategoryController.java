@@ -2,11 +2,13 @@ package uz.pdp.myappfigma.controller;
 
 import jakarta.validation.Valid;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 import uz.pdp.myappfigma.criteria.CategoryCriteria;
@@ -15,7 +17,10 @@ import uz.pdp.myappfigma.dto.category.CategoryCreatDto;
 import uz.pdp.myappfigma.dto.category.CategoryDto;
 import uz.pdp.myappfigma.dto.category.CategoryUpdateDto;
 import uz.pdp.myappfigma.dto.page.PageDto;
+import uz.pdp.myappfigma.enums.Gender;
 import uz.pdp.myappfigma.service.CategoryService;
+
+import java.util.List;
 
 @RestController
 @RequestMapping("/category/v1")
@@ -47,9 +52,10 @@ public class CategoryController {
         return new BaseResponse<>(updateId);
     }
 
-    @GetMapping("/page")
-    public BaseResponse<PageDto<CategoryDto>> getPage(CategoryCriteria criteria) {
-        PageDto<CategoryDto> page = categoryService.getPage(criteria);
-        return new BaseResponse<>(page);
+    @GetMapping("/parentCategory")
+    public BaseResponse<List<CategoryDto>> getCategoriesByGender(@RequestParam Gender gender) {
+        List<CategoryDto> categories = categoryService.getCategoriesByGender(gender);
+        return new BaseResponse<>(categories);
     }
+
 }

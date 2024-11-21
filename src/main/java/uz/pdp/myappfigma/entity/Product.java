@@ -12,6 +12,7 @@ import lombok.Setter;
 import org.hibernate.annotations.CurrentTimestamp;
 import org.hibernate.annotations.SourceType;
 import org.hibernate.generator.EventType;
+import uz.pdp.myappfigma.Test;
 
 import java.time.LocalDateTime;
 
